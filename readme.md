@@ -17,11 +17,11 @@ If HTTP/1.1 is requested (instead of HTTP/1.0), the web server will make a "pers
 The web server is multi-threaded, spawning a new thread for each incoming connection to parse the request, transmit the file, etc.
 
 High Level Pseudocode:
-•	Forever loop (listen for connections) 
-    •	Accept new connection from incoming client 
-    •	Parse the HTTP request
-        •	Ensure well-formed request (return error and skip the rest steps otherwise)
-        •	Ensure method is allowed (return error and skip the rest steps otherwise)  
-        •	Determine if target file exists (return error and skip the rest steps otherwise)
-        •	If method is GET, transmit OK message and contents of file to socket (by performing reads on the file and writes on the socket); if method is HEAD, transmit OK message to socket
-    •	Close the connection 
+-- Forever loop (listen for connections) 
+---- Accept new connection from incoming client 
+-------- Parse the HTTP request
+-------- Ensure well-formed request (return error and skip the rest steps otherwise)
+-------- Ensure method is allowed (return error and skip the rest steps otherwise)  
+-------- Determine if target file exists (return error and skip the rest steps otherwise)
+-------- If method is GET, transmit OK message and contents of file to socket (by performing reads on the file and writes on the socket); if method is HEAD, transmit OK message to socket
+---- Close the connection 
