@@ -1,9 +1,3 @@
-# Example console output of HTTP requests from browser:
-![Alt text](consoleoutput.png?raw=true)
-
-# Example HTTP response to browser:
-![Alt text](example.png?raw=true)
-
 This program implements a simple HTTP server using only Socket API. At a high level, a web server listens for connections on a socket (bound to a specific port on a host machine - localhost:8085), then clients connect to this socket and use HTTP protocol to retrieve files from the server (i.e. index.html).
 
 When the server gets a request for /index.html, it will prepend the location “template/” to the specified file and determine if the file exists. That is, “template/index.html” is the file requested. If the file does not exist, a file not found error is returned. If a file is present, an HTTP OK message is returned along with the contents of a file.
@@ -26,3 +20,9 @@ High Level Pseudocode:
     - Determine if target file exists (return error and skip the rest steps otherwise)
     - If method is GET, transmit OK message and contents of file to socket (by performing reads on the file and writes on the socket); if method is HEAD, transmit OK message to socket
   - Close the connection
+
+# Example console output of HTTP requests from browser:
+![Alt text](consoleoutput.png?raw=true)
+
+# Example HTTP response to browser:
+![Alt text](example.png?raw=true)
